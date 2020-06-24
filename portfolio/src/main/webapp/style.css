@@ -1,9 +1,236 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+/***************************** FONT AND TEXT STYLING ********************************/
+
+h1 {text-align: center;
+    font-family: helvetica,courier,arial;
+    line-height: 1.6;}
+
+h2 {font-family: helvetica,courier,arial;
+    line-height: 1.6;}
+
+h3 {font-family: helvetica,courier,arial;
+    line-height: 0.6;
+    }
+
+
+
+p {text-align: center;
+    font-family: helvetica ,courier,arial;
+    font-style: italic;
+    line-height: 1.6;
 }
 
-#greeting-container {
-  margin-top: 20px;
+div {text-align: center;
+    font-family: helvetica,courier,arial;
+    line-height: 1.6;}
+
+a{
+    font-family: 'Helvetica Neue',Helvetica,arial;
+
+}
+
+/********************     NAVIGATION BAR STYLING ***********************/
+/* Add a black background color to the top navigation */
+.topnav {
+  margin-left: 23%;
+  margin-right: 17.5%;
+  padding: 1% 8%;
+  overflow: hidden;
+  background-color:rgb(210, 210, 210);
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 1% 6%;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 25px;
+
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: rgb(20, 94, 155);
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: rgb(20, 94, 155);
+  color:white;
+}
+
+/****************************** MIDNAV BAR *********************************************/
+/* Add a black background color to the top navigation */
+.midnav {
+  float:right;
+  margin-right: 0%;
+  padding: 2% 5%;
+  overflow: hidden;
+  background-color: rgb(20, 94, 155);
+  
+}
+
+/* Style the links inside the navigation bar */
+.midnav a {
+  color: #ffffff;
+  text-align: center;
+  padding: 7px 25px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.401);
+  background-color:rgb(18, 78, 128);
+}
+
+/* Change the color of links on hover */
+.midnav a:hover {
+  background-color: rgb(238, 238, 238);
+  color: black;
+}
+
+
+/***************************** BODY STYLING ********************************************/
+.bio-banner::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+body{
+    background-color:rgb(238, 238, 238);
+}
+
+.bio-banner{
+  background-color:rgb(20, 94, 155);
+  background-position: center;
+
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  padding: 15px 10px 20px 30px;
+
+  color: white;
+}
+
+.bio{
+    float:left;
+    clear:left;
+    margin-left:20%;
+    width:200px;
+    text-align: left;
+}
+.content {
+  
+  margin-bottom: 16px;
+  height: 1000px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+
+}
+
+#profile-text {
+    padding: 20px 20px;
+    margin-left:10%;
+    margin-right:10%
+}
+
+#selfie {
+  position: absolute;
+  top: 8px;
+  left: 18.5%;
+
+  border-radius: 50%;
+  display: block;
+  border: 9px solid rgb(238, 238, 238);
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.401);
+  width: 11%;
+}
+
+.image-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-thumbnails img {
+  margin: 10px;
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.image-thumbnails img:hover {
+  border: thick solid black;
+}
+
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
 }
