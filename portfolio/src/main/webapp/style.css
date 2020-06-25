@@ -1,39 +1,54 @@
 /***************************** FONT AND TEXT STYLING ********************************/
 
-h1 {text-align: center;
-    font-family: helvetica,courier,arial;
+h1 {
+    text-align: center;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     line-height: 1.6;}
 
-h2 {font-family: helvetica,courier,arial;
+h2 {
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     line-height: 1.6;}
 
-h3 {font-family: helvetica,courier,arial;
-    line-height: 0.6;
+h3 {
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    line-height: 0;
     }
 
+ul.b {
+  list-style-type: square;
+}
 
+li{
+    text-align: left;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: 13px;
+
+}
 
 p {text-align: center;
-    font-family: helvetica ,courier,arial;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     font-style: italic;
     line-height: 1.6;
 }
 
-div {text-align: center;
-    font-family: helvetica,courier,arial;
+div {
+    text-align: center;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     line-height: 1.6;}
 
 a{
-    font-family: 'Helvetica Neue',Helvetica,arial;
-
+font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+.title {
+  color: grey;
 }
 
 /********************     NAVIGATION BAR STYLING ***********************/
 /* Add a black background color to the top navigation */
 .topnav {
-  margin-left: 23%;
+  margin-left: 26%;
   margin-right: 17.5%;
-  padding: 1% 8%;
+  padding: 0.5% 6%;
   overflow: hidden;
   background-color:rgb(210, 210, 210);
 }
@@ -41,57 +56,29 @@ a{
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #000000;
+  color: rgb(10, 60, 105);
   text-align: center;
-  padding: 1% 6%;
+  padding: 0.5% 6%;
   text-decoration: none;
   font-size: 13px;
   font-weight: bold;
   border-radius: 25px;
-
+  
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: rgb(20, 94, 155);
-  color: white;
+  background-color: rgb(204, 219, 233);
+  color: rgb(10, 60, 105);
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: rgb(20, 94, 155);
-  color:white;
+  background-color: rgb(233, 242, 250);
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  color: rgb(10, 60, 105);
 }
 
-/****************************** MIDNAV BAR *********************************************/
-/* Add a black background color to the top navigation */
-.midnav {
-  float:right;
-  margin-right: 0%;
-  padding: 2% 5%;
-  overflow: hidden;
-  background-color: rgb(20, 94, 155);
-  
-}
-
-/* Style the links inside the navigation bar */
-.midnav a {
-  color: #ffffff;
-  text-align: center;
-  padding: 7px 25px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: bold;
-  border-radius: 25px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.401);
-  background-color:rgb(18, 78, 128);
-}
-
-/* Change the color of links on hover */
-.midnav a:hover {
-  background-color: rgb(238, 238, 238);
-  color: black;
-}
 
 
 /***************************** BODY STYLING ********************************************/
@@ -106,13 +93,19 @@ body{
 }
 
 .bio-banner{
-  background-color:rgb(20, 94, 155);
-  background-position: center;
+  background-color: rgb(20, 94, 155);
+  /* background-color: #003F87; */
 
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-  padding: 15px 10px 20px 30px;
-
+  /* box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2); */
+  padding: 15px 0px 10px 30px;
   color: white;
+}
+
+.banner-streak{
+  background-color:white;
+  /* background-color:#1874CD; */
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  padding: 2px 0px;
 }
 
 .bio{
@@ -149,9 +142,13 @@ body{
 
   border-radius: 50%;
   display: block;
-  border: 9px solid rgb(238, 238, 238);
+  /* border: 8px solid #1874CD; */
+  border: 4px solid white;
+
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.401);
-  width: 11%;
+  width: 13%;
+  max-width: 200px;
+  min-width: 100px;
 }
 
 .image-thumbnails {
@@ -170,7 +167,8 @@ body{
   border: thick solid black;
 }
 
-
+/* *************************************CARD LAYOUT STYLE***************************************************** */
+/******************Citing https://www.w3schools.com/howto/howto_css_about_page.asp for card style layout ******** */
 html {
   box-sizing: border-box;
 }
@@ -189,13 +187,7 @@ html {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
-}
-
-.about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #474e5d;
-  color: white;
+  /* padding: 6% 5%; */
 }
 
 .container {
@@ -212,25 +204,47 @@ html {
   color: grey;
 }
 
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #555;
-}
 
 @media screen and (max-width: 650px) {
   .column {
     width: 100%;
     display: block;
   }
+}
+
+/****************************** MIDNAV BAR *********************************************/
+.midnav {
+  float:right;
+  margin-right: 0%;
+  padding: 2% 5%;
+  overflow: hidden;  
+}
+
+/*************************************  SOCIAL MEDIA BUTTON ********************************/
+/**** cite: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp ***/
+
+.fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* LinkedIn */
+.fa-linkedin {
+  background: white;
+  color: #3B5998;
+}
+/* Github */
+.fa-github {
+  background: white;
+  color: #3B5998;
 }
