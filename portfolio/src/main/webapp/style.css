@@ -48,7 +48,7 @@ font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
 .topnav {
   margin-left: 26%;
   margin-right: 17.5%;
-  padding: 0.5% 6%;
+  padding: 0.5% 8%;
   overflow: hidden;
   background-color:rgb(210, 210, 210);
 }
@@ -94,16 +94,14 @@ body{
 
 .bio-banner{
   background-color: rgb(20, 94, 155);
-  /* background-color: #003F87; */
-
-  /* box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2); */
   padding: 15px 0px 10px 30px;
   color: white;
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+
 }
 
 .banner-streak{
   background-color:white;
-  /* background-color:#1874CD; */
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
   padding: 2px 0px;
 }
@@ -118,8 +116,7 @@ body{
 .content {
   
   margin-bottom: 16px;
-  height: 1000px;
-
+  height: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -242,9 +239,13 @@ html {
 .fa-linkedin {
   background: white;
   color: #3B5998;
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+
 }
 /* Github */
 .fa-github {
   background: white;
   color: #3B5998;
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+
 }
