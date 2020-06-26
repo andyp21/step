@@ -18,7 +18,8 @@ ul.b {
   list-style-type: square;
 }
 
-p {text-align: center;
+p {
+    text-align: center;
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     font-style: italic;
     line-height: 1.6;
@@ -29,9 +30,6 @@ div {
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     line-height: 1.6;}
 
-a{
-font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-}
 .title {
   color: grey;
 }
@@ -39,39 +37,79 @@ font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
 /********************     NAVIGATION BAR STYLING ***********************/
 /* Add a black background color to the top navigation */
 .topnav {
-  margin-left: 26%;
-  margin-right: 17.5%;
-  padding: 0.5% 7%;
+  /* content: "";
+  clear: both;
+  display: table; */
+  padding: 2px 7%;
+  height:35px;
   overflow: hidden;
-  background-color:rgb(210, 210, 210);
+  background-color: white;
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: rgb(10, 60, 105);
+.topnav .ext-pages a {
+    color: white;
+    background-color:rgb(29, 96, 151);
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
-  padding: 0.5% 7%;
+  padding: 0.3% 5%;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 60%;
   font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   border-radius: 25px;
-  
+}
+.topnav .home{
+    float: left;
+    margin-left: 23%;
 }
 
+/* Style the links inside the navigation bar */
+.topnav .home a {
+  color: white;
+  background-color:rgba(226, 237, 250, 0.438);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.342);
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 60%;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 50%;
+} 
+
+.topnav .ext-pages{
+    margin-left: 40%;
+}
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: rgb(204, 219, 233);
-  color: rgb(10, 60, 105);
+  /* background-color: rgb(29, 96, 151); */
+      background-color: rgb(10, 60, 105);
+  /* color: rgb(10, 60, 105); */
+  color: white;
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
-  background-color: rgb(247, 251, 255);
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-  color: rgb(10, 60, 105);
-}
+.topnav .ext-pages a.active {
+  /* background-color: rgb(192, 219, 247); */
+background-color: rgb(10, 60, 105);
 
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  /* color: rgb(10, 60, 105); */
+    color: white;
+
+}
+/* Add a color to the active/current link */
+.topnav .home a.active {
+  background-color: rgba(216, 236, 250, 0.288);
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.377);
+    /* border-radius: 100%;
+  height:10px;
+  width:10px; */
+}
 
 
 /***************************** BODY STYLING ********************************************/
@@ -83,39 +121,35 @@ font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
 
 body{
     background-color:rgb(238, 238, 238);
+    margin:0;
 }
 
 .bio-banner{
-  /* background-color: rgb(20, 94, 155); */
-  background-image: linear-gradient( rgb(17, 73, 119), rgb(20, 94, 155) 80%);
-
-  padding: 15px 0px 10px 30px;
+  background-image: linear-gradient( rgb(17, 73, 119),rgba(44, 119, 180, 0.849));
+  padding: 5px 0px 10px 5px;
   color: white;
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-
 }
 
-.banner-streak{
-  background-color:white;
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-  padding: 2px 0px;
-}
 
 .bio{
     float:left;
     clear:left;
-    margin-left:20%;
+    margin-left:25%;
+    margin-top: 0.7%;
     width:200px;
     text-align: left;
+    font-size: 13px;
+  font-weight: bold;
+
 }
 .content {
-  
   margin-bottom: 16px;
-  /* height: 100%; */
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 65%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  min-height:1000px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
 
@@ -130,7 +164,7 @@ body{
 #selfie {
   position: absolute;
   top: 8px;
-  left: 18.5%;
+  left: 43%;
 
   border-radius: 50%;
   display: block;
@@ -164,6 +198,10 @@ body{
 html {
   box-sizing: border-box;
 }
+.col-design{
+    margin-left:20%;
+    margin-right:20%;
+}
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -175,7 +213,13 @@ html {
   margin-bottom: 16px;
   padding: 0 8px;
 }
-
+.column-sc {
+  float: left;
+  /* margin-left:20%;  */
+  width: 50%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
@@ -207,7 +251,7 @@ html {
 /****************************** MIDNAV BAR *********************************************/
 .midnav {
   float:right;
-  margin-right: 0%;
+  margin-right: 20%;
   padding: 2% 5%;
   overflow: hidden;  
 }
@@ -226,6 +270,10 @@ html {
 /* Add a hover effect if you want */
 .fa:hover {
   opacity: 0.7;
+  background: rgb(169, 201, 228);
+    /* background: rgba(26, 91, 145, 0.747);
+  color: white; */
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Set a specific color for each brand */
@@ -235,6 +283,7 @@ html {
   background: white;
   color: #3B5998;
     box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
 
 }
 /* Github */
@@ -242,5 +291,6 @@ html {
   background: white;
   color: #3B5998;
     box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
 
 }
