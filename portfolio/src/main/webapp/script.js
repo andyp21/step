@@ -15,12 +15,8 @@
 
 
 // Adds "Hello Andrew" to page 
-async function getGreetingAsyncAwait() {
+async function getGreeting() {
   const response = await fetch('/data');
   const greeting = await response.text();
   document.getElementById('greeting-container').innerText = greeting;
-  
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
 }
