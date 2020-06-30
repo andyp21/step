@@ -14,9 +14,31 @@
 
 
 
-// Adds "Hello Andrew" to page 
+// Adds "Hello Andrew" 
 async function getGreeting() {
   const response = await fetch('/data');
   const greeting = await response.text();
-  document.getElementById('greeting-container').innerText = greeting;
+  document.getElementById('gen-container').innerText = greeting;
+}
+
+
+// JSON feature
+function getJSON() {
+
+    fetch('/data')  // sends a request to /my-data-url
+    .then(response => response.json()) // parses the response as JSON
+    .then((flavors) => { // now we can reference the fields in myObject!
+    const flavorsListElement = document.getElementById('gen-container');
+    flavorsListElement.innerHTML = '';
+    flavorsListElement.appendChild(createListElement('1st Favourite: ' + flavors.favorite1))
+    flavorsListElement.appendChild(createListElement('2st Favourite: ' + flavors.favorite2))
+    flavorsListElement.appendChild(createListElement('2st Favourite: ' + flavors.favorite3))
+    });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }

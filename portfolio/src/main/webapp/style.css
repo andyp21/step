@@ -296,7 +296,7 @@ html {
 }
 
 /* *******************************************SERVLET GREETING ******************************* */
-#greeting-container{
+#gen-container{
     font-size: 15px;
   font-weight: bold;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
