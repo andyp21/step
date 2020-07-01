@@ -22,17 +22,16 @@ async function getGreeting() {
 }
 
 
-// JSON feature
-function getJSON() {
-
-    fetch('/data')  // sends a request to /my-data-url
+// Json feature
+function getJson() {
+    fetch('/data')  // sends a request to /data
     .then(response => response.json()) // parses the response as JSON
     .then((flavors) => { // now we can reference the fields in myObject!
     const flavorsListElement = document.getElementById('gen-container');
     flavorsListElement.innerHTML = '';
-    flavorsListElement.appendChild(createListElement('1st Favourite: ' + flavors.favorite1))
-    flavorsListElement.appendChild(createListElement('2st Favourite: ' + flavors.favorite2))
-    flavorsListElement.appendChild(createListElement('2st Favourite: ' + flavors.favorite3))
+    flavorsListElement.appendChild(createListElement('1st Favourite: ' + flavors[0]))
+    flavorsListElement.appendChild(createListElement('2nd Favourite: ' + flavors[1]))
+    flavorsListElement.appendChild(createListElement('3rd Favourite: ' + flavors[2]))
     });
 }
 
