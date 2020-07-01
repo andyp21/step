@@ -41,3 +41,10 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
+
+// Reverse text feature
+function getReverse() {
+    fetch('/rev').then(response => response.text()).then((textReverse) => { 
+    document.getElementById('rev-container').innerText = textReverse;
+      });
+}
