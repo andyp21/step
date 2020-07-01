@@ -19,11 +19,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList; 
 
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/reverse")
-public class DataServlet_rev extends HttpServlet {
+@WebServlet("/rev")
+public class DataServletReverse extends HttpServlet {
+
+  ArrayList<String> history = new ArrayList<String>();
+  
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    int length = history.size()-1;
+    response.setContentType("text/html");
+    if (!history.isEmpty())
+        response.getWriter().println(history.get(length));
+  }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -31,13 +42,15 @@ public class DataServlet_rev extends HttpServlet {
     String text = getParameter(request, "text-input", "");
     
     // Reverses String text
-    StringBuilder text_rev = new StringBuilder(); 
-    text_rev.append(text); 
-    text_rev = text_rev.reverse(); 
+    StringBuilder textReverse = new StringBuilder(text); 
+    textReverse = textReverse.reverse(); 
+
+    history.add(textReverse.toString());
 
     // Respond with the result.
     response.setContentType("text/html;");
-    response.getWriter().println(text_rev);
+    response.getWriter().println(textReverse);
+
   }
 
 

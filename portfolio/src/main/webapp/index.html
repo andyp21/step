@@ -77,15 +77,15 @@
                     <div id="gen-container"></div>
 
                 <!-- Form -->
-                <form action="/reverse" method="POST">
-
+                <form action="/rev" method="POST" target="_blank">
                     <p>Enter a word to see its reverse:</p>
                     <textarea name="text-input">teem</textarea>
                     <br/><br/>
                     <br/>
-                    <input type="Submit"  value="Submit!"/>
-
+                    <input type="Submit"  value="Submit!" onclick="getReverse()"/>
+                    
                 </form>
+                <div id="rev-container"></div>
                 
                 <!-- *********************************** MESSAGE ******************************************* -->
 
