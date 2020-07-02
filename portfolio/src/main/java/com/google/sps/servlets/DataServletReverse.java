@@ -20,32 +20,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList; 
-
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/rev")
 public class DataServletReverse extends HttpServlet {
-
-  ArrayList<String> history = new ArrayList<String>();
   
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    int length = history.size()-1;
-    response.setContentType("text/html");
-    if (!history.isEmpty())
-        response.getWriter().println(history.get(length));
-  }
+//   @Override
+//   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//     int length = history.size()-1;
+//     response.setContentType("text/html");
+//     if (!history.isEmpty())
+//         response.getWriter().println(history.get(length));
+//   }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
     String text = getParameter(request, "text-input", "");
     
+    Entity taskEntity = new Entity("Task");
+    taskEntity.setProperty("input", text);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(taskEntity);
+
     // Reverses String text
     StringBuilder textReverse = new StringBuilder(text); 
     textReverse = textReverse.reverse(); 
 
-    history.add(textReverse.toString());
+
+
 
     // Respond with the result.
     response.setContentType("text/html;");
