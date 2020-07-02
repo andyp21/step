@@ -26,7 +26,7 @@ async function getGreeting() {
 function getJson() {
     fetch('/data')  // sends a request to /data
     .then(response => response.json()) // parses the response as JSON
-    .then((flavors) => { // now we can reference the fields in myObject!
+    .then((flavors) => { // now we can reference the fields
     const flavorsListElement = document.getElementById('gen-container');
     flavorsListElement.innerHTML = '';
     flavorsListElement.appendChild(createListElement('1st Favourite: ' + flavors[0]))
@@ -47,4 +47,16 @@ function getReverse() {
     fetch('/rev').then(response => response.text()).then((textReverse) => { 
     document.getElementById('rev-container').innerText = textReverse;
       });
+}
+
+// Retrieves list of 2 most recent entries
+function getReverseList() {
+    fetch('/rev')  // sends a request to /data
+    .then(response => response.json()) // parses the response as JSON
+    .then((word) => { // now we can reference the fields
+    const flavorsListElement = document.getElementById('rev-container');
+    flavorsListElement.innerHTML = '';
+    flavorsListElement.appendChild(createListElement('most recent entry: ' + word[0]))
+    flavorsListElement.appendChild(createListElement('2nd most recent entry: ' + word[1]))
+    });
 }
