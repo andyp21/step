@@ -13,50 +13,35 @@
 // limitations under the License.
 
 
-
-// Adds "Hello Andrew" 
-async function getGreeting() {
-  const response = await fetch('/data');
-  const greeting = await response.text();
-  document.getElementById('gen-container').innerText = greeting;
-}
-
-
-// Json feature
-function getJson() {
-    fetch('/data')  // sends a request to /data
-    .then(response => response.json()) // parses the response as JSON
-    .then((flavors) => { // now we can reference the fields
-    const flavorsListElement = document.getElementById('gen-container');
-    flavorsListElement.innerHTML = '';
-    flavorsListElement.appendChild(createListElement('1st Favourite: ' + flavors[0]))
-    flavorsListElement.appendChild(createListElement('2nd Favourite: ' + flavors[1]))
-    flavorsListElement.appendChild(createListElement('3rd Favourite: ' + flavors[2]))
-    });
-}
-
-/** Creates an <li> element containing text. */
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
-}
-
-// Reverse text feature
-function getReverse() {
-    fetch('/rev').then(response => response.text()).then((textReverse) => { 
-    document.getElementById('rev-container').innerText = textReverse;
-      });
-}
-
 // Retrieves list of 2 most recent entries
-function getReverseList() {
-    fetch('/rev')  // sends a request to /data
+function getComment(num) {
+    fetch('/comments')  // sends a request to /data
     .then(response => response.json()) // parses the response as JSON
-    .then((word) => { // now we can reference the fields
-    const flavorsListElement = document.getElementById('rev-container');
-    flavorsListElement.innerHTML = '';
-    flavorsListElement.appendChild(createListElement('most recent entry: ' + word[0]))
-    flavorsListElement.appendChild(createListElement('2nd most recent entry: ' + word[1]))
+    .then((review) => { // now we can reference the fields
+    const commentListElement = document.getElementById('reviews');
+    commentListElement.innerHTML = '';
+
+    var i;
+    var numComments =Math.min(review.comments.length,num);
+    
+    for (i =0; i<numComments; i++){
+            commentListElement.appendChild(createCommentElement(review.comments[i]))
+            commentListElement.appendChild(createNameElement('—\ ' + review.names[i]))
+    }
     });
+}
+/** Creates an <h6> element for the name of the commentor. */
+function createNameElement(text) {
+  const divElement = document.createElement('h6');
+  divElement.innerText = text;
+  divElement.className = "name";
+  return divElement;
+}
+
+/** Creates an <h5> element for the comment. */
+function createCommentElement(text) {
+  const divElement = document.createElement('p');
+  divElement.innerText = text;
+  divElement.className = "comment";
+  return divElement;
 }
