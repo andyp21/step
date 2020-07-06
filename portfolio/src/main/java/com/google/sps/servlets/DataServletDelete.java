@@ -33,6 +33,8 @@ import com.google.appengine.api.datastore.Query.FilterPredicate;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.KeyRange;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 
 // Servlet which retrieves user String word entries, reverses them and returns the 2 most recent entries
 @WebServlet("/delete-data")
@@ -48,6 +50,9 @@ public class DataServletDelete extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
+    UserService userService = UserServiceFactory.getUserService();
+    String id = userService.getCurrentUser().getUserId();
+
     // Get the input from the form.
     String name = getParameter(request, "delete", "");
         
@@ -56,14 +61,15 @@ public class DataServletDelete extends HttpServlet {
         // response.getWriter().println("Cannot delete anonymous");
         return;
     }
-    Filter keyFilter = new FilterPredicate("name", FilterOperator.EQUAL, name);
-    Query query = new Query("Entries").setFilter(keyFilter);
+    Filter namefilter = new FilterPredicate("name", FilterOperator.EQUAL, name);
+    Filter useridFilter = new FilterPredicate("id", Query.FilterOperator.EQUAL, id);
+    Query query = new Query("Entries").setFilter(namefilter).setFilter(useridFilter);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
 
     for (Entity entity : results.asIterable()) {
-            datastore.delete(entity.getKey());
+        datastore.delete(entity.getKey());
     }
     
     // Respond with the result.
