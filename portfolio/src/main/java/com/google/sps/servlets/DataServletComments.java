@@ -31,7 +31,7 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 
-// Servlet which retrieves user String word entries, reverses them and returns the 2 most recent entries
+// Servlet which retrieves client String comment entries, stores them on server, and displays them on wall 
 @WebServlet("/comments")
 public class DataServletComments extends HttpServlet {
   
@@ -72,13 +72,13 @@ public class DataServletComments extends HttpServlet {
     UserService userService = UserServiceFactory.getUserService();
     String id = userService.getCurrentUser().getUserId();
 
-    Entity users = new Entity("Entries",id);
-    users.setProperty("id", id);
-    users.setProperty("name", name);
-    users.setProperty("comment", text);
-    users.setProperty("timestamp", timestamp);
+    Entity userComments = new Entity("Entries",id);
+    userComments.setProperty("id", id);
+    userComments.setProperty("name", name);
+    userComments.setProperty("comment", text);
+    userComments.setProperty("timestamp", timestamp);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(users);
+    datastore.put(userComments);
 
 
     // Respond with the result.

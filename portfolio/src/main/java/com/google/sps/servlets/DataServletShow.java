@@ -37,7 +37,7 @@ import com.google.appengine.api.datastore.KeyRange;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
-// Servlet which retrieves user String word entries, reverses them and returns the 2 most recent entries
+// Servlet which sends out the client's login status
 @WebServlet("/show")
 public class DataServletShow extends HttpServlet {
   

@@ -33,7 +33,7 @@ import com.google.appengine.api.datastore.KeyRange;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
-// Servlet which retrieves user String word entries, reverses them and returns the 2 most recent entries
+// Servlet which deletes the client's comments from the server
 @WebServlet("/delete-data")
 public class DataServletDelete extends HttpServlet {
   
@@ -43,7 +43,7 @@ public class DataServletDelete extends HttpServlet {
     response.getWriter().println();
   }
 
-// Retrieves word entries and reverses them
+// Method called when client uses delete button
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
@@ -52,8 +52,8 @@ public class DataServletDelete extends HttpServlet {
     String id = userService.getCurrentUser().getUserId();
 
     // Filter the entity list for the clients id
-    Filter useridFilter = new FilterPredicate("id", FilterOperator.EQUAL, id);
-    Query query = new Query("Entries").setFilter(useridFilter);
+    Filter userIdFilter = new FilterPredicate("id", FilterOperator.EQUAL, id);
+    Query query = new Query("Entries").setFilter(userIdFilter);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
