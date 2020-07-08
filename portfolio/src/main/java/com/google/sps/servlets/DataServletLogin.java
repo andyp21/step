@@ -24,7 +24,7 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 
-// Servlet which retrieves user String word entries, reverses them and returns the 2 most recent entries
+// Servlet which logs the user into their google account
 @WebServlet("/login")
 public class DataServletLogin extends HttpServlet {
   
