@@ -69,13 +69,16 @@ public class DataServletComments extends HttpServlet {
     String name = getParameter(request, "name", "Anonymous");
     String text = getParameter(request, "comment", "");
     long timestamp = System.currentTimeMillis();
+    UserService userService = UserServiceFactory.getUserService();
+    String id = userService.getCurrentUser().getUserId();
 
-    Entity taskEntity = new Entity("Entries");
-    taskEntity.setProperty("name", name);
-    taskEntity.setProperty("comment", text);
-    taskEntity.setProperty("timestamp", timestamp);
+    Entity users = new Entity("Entries",id);
+    users.setProperty("id", id);
+    users.setProperty("name", name);
+    users.setProperty("comment", text);
+    users.setProperty("timestamp", timestamp);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(taskEntity);
+    datastore.put(users);
 
 
     // Respond with the result.

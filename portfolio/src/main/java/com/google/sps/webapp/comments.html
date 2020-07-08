@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Wall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+  </head>
+
+  <body onload="getComment(7);">
+      
+  <!-- **************************** NAVBAR  **************************** -->
+
+     <div class="topnav">
+        <div class="home">
+            <a href="index.html">  👤  </a>
+         </div>
+        <div class="ext-pages">
+            <a href="projects.html">PROJECTS</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="map.html"> MAP </a>
+            <a class="active" href="comments.html">COMMENTS</a>
+        </div>
+     </div>
+
+     <!-- ************************************************************************** -->
+        
+        <header>        
+            <!-- ************************ BANNER  **************************** -->
+            <div class="bio-banner">
+
+                <div class="bio">
+                    <h3> Andrew Paul</h3>                         
+                    <span> 🇯🇲 ✈ 🇺🇸  |  Princeton '22 <br> Hi, I'm Paul! </span>
+                </div>
+
+                <div class="midnav">
+                    <a href="https://www.linkedin.com/in/andypauul123/" class="fa fa-linkedin"></a>
+                    <a href="https://github.com/andyp21"class="fa fa-github"></a>
+                    <div id="logout"></div>
+                </div>
+            </div>
+
+            <img src="images/selfie.jpg" id="selfie"/>
+
+    <!-- ************************************************************************** -->
+        </header>
+
+     <div class="content">
+        <script>showContent()</script>
+
+        <br><br>
+        <!-- *************************************** COMMENTS *************************************** -->
+        <div id="login"> </div>
+
+
+        <div class="comments">    
+            <div id="showcontent">  
+             <!-- Previous comments section/wall display -->  
+            <div class="wall">    
+
+                <div id="reviews"> </div>
+                <div class="numcomments">
+                    <br>
+                    <p>Showing
+                    <input type="number" name="num-comments" min="1" max="10" value="7" onchange="getComment(this.value)" style="width:30px;font-size:85%;">
+                     out of 7
+                    </p>
+                </div>
+
+                <!-- Delete comments -->
+                <div class="del-form">
+                    <br>
+                    <form action="/delete-data" method="POST">
+                        <input type="Submit"  id="delete" value="Delete"/>
+                    </form>
+                    <p style="font-size:50%">Note: Deletes all your previous posts</p>
+
+                </div>
+            </div>
+
+            <!-- Form -->
+              <div class="form">
+                <br><br>
+                    <form action="/comments" method="POST">
+                        <h3 style="display:inline">Leave a comment:</h3>
+                            <div class="name-box">
+                            </div>
+                        <input type="text" id="name-form" name="name" placeholder=" Your name.." maxlength="25">
+
+                        <div class="comment-box">
+                        </div>
+                        <div class="box">
+                            <textarea id="comment-form" name="comment" placeholder=" Write something.." maxlength="250" required></textarea>
+                        </div>
+                        <input id="post" type="Submit"  value="Post"/>
+                    </form>
+            </div>
+        </div>
+        </div>
+    </div>
+  </body>
+</html>
+ 
+ 
+ 
+
