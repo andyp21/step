@@ -80,7 +80,6 @@ public class DataServletComments extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(userComments);
 
-
     // Respond with the result.
     response.setContentType("text/html;");
     response.getWriter().println(text);

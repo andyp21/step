@@ -60,11 +60,12 @@ div {
 }
 /* Style the links inside the navigation bar */
 .topnav .ext-pages a {
-    color: white;
-   background-color:rgb(29, 96, 151);
+  color: white;
+  background-color:rgb(29, 96, 151);
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
-  padding: 0.3% 5%;
+  padding: 0.3% 3%;
+  margin: 0 3px 0 3px;    
   text-decoration: none;
   font-size: 60%;
   font-weight: bold;
@@ -335,12 +336,15 @@ html {
     display: inline-table;
     padding-left: 5%;
 }
+
+
 .name-box{
   padding-top: 20px;
   font-size: 15px;
   font-weight: bold;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 .comment-box{
   padding-top: 20px;
   font-size: 15px;
@@ -349,23 +353,22 @@ html {
 }
 
 #comment-form{
-     height:80%;
-     min-height:100px;
+    height:80%;
+    min-height:100px;
     max-width: 300px;
     max-height: 500px;
 
-     width:80%;
-     font-family: Trebuchet MS;
-     border-radius: 10px;
-     border:none;
-     outline: none;
+    width:80%;
+    font-family: Trebuchet MS;
+    border-radius: 10px;
+    border:none;
+    outline: none;
     background-color: rgba(0, 0, 0, 0.02);
     box-shadow: 0 8px 14px -3px rgba(0, 0, 0, 0.1) inset;
     padding:5px;
     font-size: 60%; 
-
-
 }
+
 #name-form{
     width:60%; 
     font-family: Trebuchet MS; 
@@ -393,6 +396,7 @@ html {
    border-radius: 0 0 10px 10px; 
    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Arial', 'sans-serif';
 }
+
 .comment{
     padding: 10px 15px 5px 15px;
     margin:10px 0 0 0;
@@ -419,6 +423,7 @@ html {
     font-style: bold;
     padding:3px 5%;
 }
+
 #post:hover{
     background-color: rgb(10, 60, 105);
     color:white;
@@ -429,6 +434,7 @@ html {
     font-style: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Arial', 'sans-serif';
 }
+
 #delete{
    background-color:#CD5C5C	;
     color:white;
@@ -441,6 +447,7 @@ html {
     font-style: bold;
     padding:3px 5%;
 }
+
 #delete:hover{
     background-color: #CD5C5C	;
     color:white;
@@ -456,4 +463,73 @@ html {
     box-shadow: 0 8px 14px -3px rgba(0, 0, 0, 0.1) inset;
     padding:5px;
     font-size: 60%; 
+}
+
+/* ****************************** LOGIN/LOGOUT BUTTON STYLES ******************************** */
+.log-frame{
+    width:60%;
+    height:250px;
+}
+
+#logout a{
+  color: rgb(29, 96, 151);
+  background-color:white;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 2% 10%;
+  text-decoration: none;
+  font-size: 50%;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 25px;
+}
+
+/* Add a hover effect if you want */
+#logout a:hover {
+  opacity: 0.7;
+  background: rgb(169, 201, 228);
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+#login a{
+  color: rgb(29, 96, 151);
+  background-color:white;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.322);
+  text-align: center;
+  padding: 1% 5%;
+  text-decoration: none;
+  font-size: 50%;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 25px;
+}
+
+/* Add a hover effect if you want */
+#login a:hover {
+  opacity: 0.7;
+  background: rgb(169, 201, 228);
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+#quiz{
+  color: rgb(29, 96, 151);
+  background-color:white;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.322);
+  text-align: center;
+  padding: 1% 5%;
+  text-decoration: none;
+  font-size: 50%;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 25px;
+ outline:none;
+}
+
+/* Add a hover effect if you want */
+#quiz:hover {
+  opacity: 0.7;
+  background: rgb(169, 201, 228);
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+   
 }
