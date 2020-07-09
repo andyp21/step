@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script async defer src="scriptchart.js">
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+    </script>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+  </head>
+
+  <body>
+    
+    <!-- ************************ NAVBAR  **************************** -->
+
+     <div class="topnav">
+        <div class="home">
+            <a href="index.html">  👤  </a>
+        </div>
+        <div class="ext-pages">
+            <a href="projects.html">PROJECTS</a>
+            <a href="gallery.html">GALLERY</a>
+            <a class="active" href="quiz.html"> QUIZ </a>
+            <a href="comments.html">COMMENTS</a>
+
+        </div>
+     </div>
+     <!-- ************************************************************************** -->
+    <header>        
+                <!-- ************************ BANNER  **************************** -->
+                    <div class="bio-banner">
+
+                        <div class="bio">
+                            <h3> Andrew Paul </h3>
+                            <span> 🇯🇲 ✈ 🇺🇸  |  Princeton '22 <br> Hi, I'm Paul! </span>
+                        </div>
+                        
+                        <div class="midnav">
+                            <a href="https://www.linkedin.com/in/andypauul123/" class="fa fa-linkedin"></a>
+                            <a href="https://github.com/andyp21"class="fa fa-github"></a>
+                            <div id="logout"></div>
+                        </div>
+                   </div>
+
+                    <img src="images/selfie.jpg" id="selfie"/>
+
+    <!-- ************************************************************************** -->
+    </header>
+     <div class="content">
+        <script> showContent();</script>
+        <br><br>
+
+        <div id="login"> </div>
+            <div id="showcontent">
+                <div id="chart-container"></div>
+
+                <h2>Quiz</h2>
+                 <form action="/correct" method="POST">
+                    <input type="text" id="name-form" name="name" placeholder=" Your name.." maxlength="25" style="width:30%">
+                    <br></br>
+                    <h4> When is Andrew's birthday? </h4>
+                    <div id="answer"><input class="q1" onclick="checkOnlyOne(this.value,'q1');" type="checkbox" name="bday" value="December 8th">December 8th <br></div>
+                    <input class="q1" onclick="checkOnlyOne(this.value,'q1');" type="checkbox" name="bday" value="June 24th">June 24th<br>
+                    <input class="q1" onclick="checkOnlyOne(this.value,'q1');" type="checkbox" name="bday" value="August 3rd">August 3rd<br>
+                    <input class="q1" onclick="checkOnlyOne(this.value,'q1');" type="checkbox" name="bday" value="January 4th">January 4th<br>
+                    <br></br>
+                    <h4> What is Andrew's middle name? </h4>
+                    <input class="q2" onclick="checkOnlyOne(this.value, 'q2');" type="checkbox" name="midName" value="John">John <br>
+                    <input class="q2" onclick="checkOnlyOne(this.value, 'q2');" type="checkbox" name="midName" value="Anthony">Anthony <br>
+                    <div id="answer"><input class="q2" onclick="checkOnlyOne(this.value, 'q2');" type="checkbox" name="midName" value="Micah">Micah <br></div>
+                    <input class="q2" onclick="checkOnlyOne(this.value, 'q2');" type="checkbox" name="midName" value="Richard">Richard <br>
+                    <br></br>
+                    <h4> What is Andrew's favorite sport? </h4>
+                    <input class="q3" onclick="checkOnlyOne(this.value, 'q3');" type="checkbox" name="sport" value="Water Polo">Water Polo <br> 
+                    <div id="answer"><input class="q3" onclick="checkOnlyOne(this.value, 'q3');" type="checkbox" name="sport" value="Soccer">Soccer <br></div>
+                    <input class="q3" onclick="checkOnlyOne(this.value, 'q3');" type="checkbox" name="sport" value="Tennis">Tennis <br>
+                    <input class="q3" onclick="checkOnlyOne(this.value, 'q3');" type="checkbox" name="sport" value="Track">Track <br>
+                    <br></br>
+                    <h4> What is Andrew's favorite show on Netflix? </h4>
+                    <input class="q4" onclick="checkOnlyOne(this.value, 'q4');" type="checkbox" name="series" value="Peaky Blinders">Peaky Blinders <br>
+                    <input class="q4" onclick="checkOnlyOne(this.value, 'q4');" type="checkbox" name="series" value="Ozark">Ozark <br>
+                    <input class="q4" onclick="checkOnlyOne(this.value, 'q4');" type="checkbox" name="series" value="Money Heist">Money Heist <br>
+                    <div id="answer"><input class="q4" onclick="checkOnlyOne(this.value, 'q4');" type="checkbox" name="series" value="The Last Kingdom">The Last Kingdom <br></div>
+                    <br></br>
+                    <h4> What is Andrew's favorite movie? </h4>
+                    <input class="q5" onclick="checkOnlyOne(this.value, 'q5');" type="checkbox" name="movies" value="Pirates of the Caribbean">Pirates of the Caribbean <br>
+                    <input class="q5" onclick="checkOnlyOne(this.value, 'q5');" type="checkbox" name="movies" value="The Revenant">The Revenant <br>
+                    <div id="answer"><input class="q5" onclick="checkOnlyOne(this.value, 'q5');" type="checkbox" name="movies" value="1917">1917 <br></div>
+                    <input class="q5" onclick="checkOnlyOne(this.value, 'q5');" type="checkbox" name="movies" value="The Avengers">The Avengers <br>
+                    <br></br>
+                    <h4> What is Andrew's favorite song? </h4>
+                    <input class="q6" onclick="checkOnlyOne(this.value, 'q6');" type="checkbox" name="song" value="Castle on the Hill">Castle on the Hill - Ed Sheeran <br>
+                    <input class="q6" onclick="checkOnlyOne(this.value, 'q6');" type="checkbox" name="song" value="Watermelon Sugar">Watermelon Sugar - Harry Styles <br>
+                    <div id="answer"><input class="q6" onclick="checkOnlyOne(this.value, 'q6');" type="checkbox" name="song" value="Ville Mentality">Ville Mentality - J. Cole <br></div>
+                    <input class="q6" onclick="checkOnlyOne(this.value, 'q6');" type="checkbox" name="song" value="502 Come Up">502 Come Up - Bryson Tiller <br>
+                    <br></br>
+                    <h4> What is Andrew's dream job? </h4>
+                    <div id="answer"><input class="q7" onclick="checkOnlyOne(this.value, 'q7');" type="checkbox" name="career" value="Actor">Actor <br></div>
+                    <input class="q7" onclick="checkOnlyOne(this.value, 'q7');" type="checkbox" name="career" value="Astronaut">Astronaut <br>
+                    <input class="q7" onclick="checkOnlyOne(this.value, 'q7');" type="checkbox" name="career" value="Software Engineer">Software Engineer <br>
+                    <input class="q7" onclick="checkOnlyOne(this.value, 'q7');" type="checkbox" name="career" value="Politician">Politician <br>
+                    <br></br>
+                    <h4> What is the name of Andrew's high school? </h4>
+                    <div id="answer"><input class="q8" onclick="checkOnlyOne(this.value, 'q8');" type="checkbox" name="school" value="Campion">Campion College <br></div>
+                    <input class="q8" onclick="checkOnlyOne(this.value, 'q8');" type="checkbox" name="school" value="Mona High">Mona High <br>
+                    <input class="q8" onclick="checkOnlyOne(this.value, 'q8');" type="checkbox" name="school" value="Wolmer's High">Wolmer's High <br>
+                    <input class="q8" onclick="checkOnlyOne(this.value, 'q8');" type="checkbox" name="school" value="Jamaica College">Jamaica College   <br>      
+                    <br></br>
+                    <h4> What is Andrew's favorite food? </h4>
+                    <input class="q9" onclick="checkOnlyOne(this.value, 'q9');" type="checkbox" name="food" value="Hamburger">Hamburger <br>
+                    <input class="q9" onclick="checkOnlyOne(this.value, 'q9');" type="checkbox" name="food" value="Lasagna">Lasagna <br>
+                    <div id="answer"><input class="q9" onclick="checkOnlyOne(this.value, 'q9');" type="checkbox" name="food" value="Jerk Chicken">Jerk Chicken <br></div>
+                    <input class="q9" onclick="checkOnlyOne(this.value, 'q9');" type="checkbox" name="food" value="Jamaican Patties">Jamaican Patties <br>       
+                    <br></br>
+                    <h4> How many siblings does Andrew have? </h4>
+                    <input class="q10" onclick="checkOnlyOne(this.value, 'q10');" type="checkbox" name="siblings" value="1">1 <br>
+                    <div id="answer"><input class="q10" onclick="checkOnlyOne(this.value, 'q10');" type="checkbox" name="siblings" value="3">3 <br></div>
+                    <input class="q10" onclick="checkOnlyOne(this.value, 'q10');" type="checkbox" name="siblings" value="5">5 <br>
+                    <input class="q10" onclick="checkOnlyOne(this.value, 'q10');" type="checkbox" name="siblings" value="7">7 <br>       
+                    <br></br>
+                    <button id="quiz" type="submit">Submit</button>
+
+                    <br></br><br></br><br></br>
+
+                </form>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
+ 
+ 
+ 
+

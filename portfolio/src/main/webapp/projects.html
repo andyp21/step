@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <script src="script.js"></script>
+
   </head>
 
   <body>
@@ -18,6 +20,7 @@
         <div class="ext-pages">
             <a class="active" href="projects.html">PROJECTS</a>
             <a href="gallery.html">GALLERY</a>
+            <a href="quiz.html"> QUIZ </a>
             <a href="comments.html">COMMENTS</a>
 
         </div>
@@ -39,6 +42,7 @@
                         <div class="midnav">
                             <a href="https://www.linkedin.com/in/andypauul123/" class="fa fa-linkedin"></a>
                             <a href="https://github.com/andyp21"class="fa fa-github"></a>
+                            <div id="logout"></div>
                         </div>
                    </div>
 
@@ -48,7 +52,13 @@
     </header>
 
      <div class="content">
-        <br>
+        <script> showContent()</script>
+        <br><br>
+
+        <div id="login"> </div>
+
+        <div id="showcontent">  
+
             <!-- ********************* EXPERIENCES/PROJECTS  ************************ -->
             <!-- Citing https://www.w3schools.com/howto/howto_css_about_page.asp for card style layout  -->
 
@@ -89,13 +99,12 @@
                             <h2 style= "margin: 0 3% 0 3%">Citi Technology Early ID Leadership Program</h2>
                             <p class="title">Intern</p>
                             <p style= "margin: 0 5% 0 5%">Participated in 5 weeks of training in cloud platforms, machine learning, and building microservices. </p><br>
-                            <!-- <p>Link: <a href="documents/GAN-project.pdf">PDF Research</a></p> -->
                         </div>
                     </div>
                </div>
             <!-- ************************************************************************** -->
 
-
+        </div>
 
         <br><br>
     </div>    
