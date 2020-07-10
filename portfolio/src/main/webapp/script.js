@@ -13,6 +13,10 @@
 // limitations under the License.
 
 
+
+
+// ******************************COMMENTS SCRIPT *******************************
+
 // Retrieves list of 2 most recent entries
 function getComment(num) {
     fetch('/comments')  // sends a request to /data
@@ -20,13 +24,11 @@ function getComment(num) {
     .then((review) => { // now we can reference the fields
     const commentListElement = document.getElementById('reviews');
     commentListElement.innerHTML = '';
-
     var i;
     var numComments =Math.min(review.comments.length,num);
-    
     for (i =0; i<numComments; i++){
-            commentListElement.appendChild(createCommentElement(review.comments[i]))
-            commentListElement.appendChild(createNameElement('—\ ' + review.names[i]))
+        commentListElement.appendChild(createCommentElement(review.comments[i]))
+        commentListElement.appendChild(createNameElement('—\ ' + review.names[i]))
     }
     });
 }
@@ -45,3 +47,80 @@ function createCommentElement(text) {
   divElement.className = "comment";
   return divElement;
 }
+
+
+
+// *********************************** LOGIN/LOGOUT FEATURE ****************************
+
+// Decides if the content of the screen should be shown or a link to login
+function showContent(){
+  fetch('/show').then(response => response.text()).then((show) => {
+ 
+    if (show.localeCompare("yes")){
+        document.getElementById('login').style.display = "block";
+        document.getElementById('showcontent').style.display = "none";
+        getInLink();
+    }
+    if (show.localeCompare("no")){
+        document.getElementById('login').style.display = "none";
+        document.getElementById('showcontent').style.display = "block";
+        getOutLink();
+
+    }
+    console.log(show.localeCompare("no"));
+    console.log(show.localeCompare("yes"));
+
+
+  });
+}
+
+// Retrieves login link from DataServletLogin.java
+function getInLink(){
+  fetch('/login').then(response => response.text()).then((log) => {
+
+    // Creates login button
+    const divElement = document.createElement('a');
+    divElement.className = "log-frame";
+    divElement.href=log;
+    divElement.text="Sign In";
+    const divElement2 = document.createElement('h6');
+    divElement2.innerText = 'Content Locked: ';
+    
+    // Returns the element
+    const logElement = document.getElementById('login');
+    logElement.innerHTML = '';
+    logElement.appendChild(divElement2);
+    logElement.appendChild(divElement);
+    logElement.className='lock';
+ });
+}
+
+// Retrieves logout link from DataServletLogout.java
+function getOutLink(){
+  fetch('/logout').then(response => response.text()).then((log) => {
+    
+    // creates logout button
+    const divElement = document.createElement('a');
+    divElement.href=log;
+    divElement.text="LOGOUT";
+
+    // Returns the element
+    const logElement = document.getElementById('logout');
+    logElement.innerHTML = '';
+    logElement.appendChild(divElement);
+ });
+}
+
+
+// ****************************************** QUIZ ****************************************
+
+// Ensures that only one box can be checked per question for quiz
+function checkOnlyOne(question,className){
+    var currentAnswer = document.getElementsByClassName(className);
+    var i;
+
+    for (i = 0; i < currentAnswer.length; i++) {
+        if(currentAnswer[i].value != question) currentAnswer[i].checked = false;
+    }
+}
+
