@@ -12,43 +12,39 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+let map;
 
+/** Creates a map that allows users to add markers. */
+function createMap() {
+  map = new google.maps.Map(document.getElementById('map'),{center: {lat: 18, lng: -76.8923}, zoom: 10});
 
+  fetchMarkers();
+}
 
-// ******************************COMMENTS SCRIPT *******************************
-
-// Retrieves list of 2 most recent entries
-function getComment(num) {
-    fetch('/comments')  // sends a request to /data
-    .then(response => response.json()) // parses the response as JSON
-    .then((review) => { // now we can reference the fields
-    const commentListElement = document.getElementById('reviews');
-    commentListElement.innerHTML = '';
-    var i;
-    var numComments =Math.min(review.comments.length,num);
-    for (i =0; i<numComments; i++){
-        commentListElement.appendChild(createCommentElement(review.comments[i]))
-        commentListElement.appendChild(createNameElement('—\ ' + review.names[i]))
-    }
+/** Fetches markers from the backend and adds them to the map. */
+function fetchMarkers() {
+  fetch('/markers').then(response => response.json()).then((markers) => {
+    markers.forEach(
+        (marker) => {
+            const pic = document.createElement('img');
+            pic.src =marker.content;
+            pic.style.cssText="width:400px;height:400px;"
+            createMarkerForDisplay(marker.lat, marker.lng, pic);
     });
-}
-/** Creates an <h6> element for the name of the commentor. */
-function createNameElement(text) {
-  const divElement = document.createElement('h6');
-  divElement.innerText = text;
-  divElement.className = "name";
-  return divElement;
+    
+  });
 }
 
-/** Creates an <h5> element for the comment. */
-function createCommentElement(text) {
-  const divElement = document.createElement('p');
-  divElement.innerText = text;
-  divElement.className = "comment";
-  return divElement;
+/** Creates a marker that shows a read-only info window when clicked. */
+function createMarkerForDisplay(lat, lng, content) {
+  const marker = new google.maps.Marker({position: {lat: lat, lng: lng}, map: map});
+  const infoWindow = new google.maps.InfoWindow({content: content});
+  marker.addListener('click', () => {
+        infoWindow.close(map);
+        infoWindow.open(map, marker);
+  });
+  marker.setIcon('images/prof.png');
 }
-
-
 
 // *********************************** LOGIN/LOGOUT FEATURE ****************************
 
@@ -100,17 +96,3 @@ function getOutLink(){
     logElement.style.cssText="float:right;"
  });
 }
-
-
-// ****************************************** QUIZ ****************************************
-
-// Ensures that only one box can be checked per question for quiz
-function checkOnlyOne(question,className){
-    var currentAnswer = document.getElementsByClassName(className);
-    var i;
-
-    for (i = 0; i < currentAnswer.length; i++) {
-        if(currentAnswer[i].value != question) currentAnswer[i].checked = false;
-    }
-}
-
