@@ -41,6 +41,7 @@ import java.util.Scanner;
 @WebServlet("/correct")
 public class ServletRanking extends HttpServlet {
   
+//   Fetches the previous scores on the quiz and prints them as Json string
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String scoresJson = retrieveScores();
@@ -49,7 +50,7 @@ public class ServletRanking extends HttpServlet {
   }
 
 
-// Retrieves word entries and reverses them
+// Retrieves quiz question responses, calculates the score, and stores it in the datastore service
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
@@ -98,6 +99,7 @@ public class ServletRanking extends HttpServlet {
     return value;
   }
 
+  //   Retrieves the scores from the datastore service
   public String retrieveScores(){
     // get all scores from database
     Query query = new Query("Scores");
@@ -113,15 +115,17 @@ public class ServletRanking extends HttpServlet {
     return gson.toJson(scores);
   }
 
-public void storeScores(String name, int score){
+  // Stores the user's score and name in the datastore service
+  public void storeScores(String name, int score){
     Entity userScore = new Entity("Scores");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     userScore.setProperty("score", score);
     userScore.setProperty("name", name);
     datastore.put(userScore);
-}
+  }
 
-public int handleResults(String[] a, String[] b, String[] c,String[] d, String[] e,String[] f,String[] g,String[] h,String[] i,String[] j){
+  // Grades the user's performance on the quiz and returns the score
+  public int handleResults(String[] a, String[] b, String[] c,String[] d, String[] e,String[] f,String[] g,String[] h,String[] i,String[] j){
     int score=0;
 	if (a[0].equals("December 8th")){
         score++;
@@ -154,6 +158,6 @@ public int handleResults(String[] a, String[] b, String[] c,String[] d, String[]
         score++;
     }
     return score; 
-}
+  }
 
 }

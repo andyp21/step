@@ -28,6 +28,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 @WebServlet("/login")
 public class DataServletLogin extends HttpServlet {
   
+  //   Fetch login link is user is logged out
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html");

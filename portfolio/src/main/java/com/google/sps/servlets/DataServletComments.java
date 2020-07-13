@@ -42,7 +42,7 @@ public class DataServletComments extends HttpServlet {
     response.getWriter().println(comments);
   }
 
-// Retrieves word entries and reverses them
+  // Retrieves word entries and reverses them
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
@@ -71,6 +71,7 @@ public class DataServletComments extends HttpServlet {
     return value;
   }
     
+  //  Retrieves the user's comments from the datastore service and returns it as a Json String of their name and the comment
   public String retrieveComments(){
     //   sort entries by most recent
     Query query = new Query("Entries").addSort("timestamp", SortDirection.DESCENDING);
@@ -90,6 +91,7 @@ public class DataServletComments extends HttpServlet {
     return convertToJson(commentList,nameList);
   }
 
+  //   Stores the user's comments in the datastore service
   public void storeComment(String name, String comment){
 
     long timestamp = System.currentTimeMillis();

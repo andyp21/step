@@ -43,8 +43,8 @@ public class MarkerServlet extends HttpServlet {
     response.getWriter().println(markers);
   }
 
+  // Manually create list of markers for display and return them as a Json String
   public String getMarkers(){
-    // Manually add list of markers for display
     Collection<Marker> markers = new ArrayList<>();
     Marker marker = new Marker(18.004360804462404, -76.78550655093456, "images/jamaicanflag.jpg");
     markers.add(marker);
