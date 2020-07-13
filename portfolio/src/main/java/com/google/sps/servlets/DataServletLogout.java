@@ -27,6 +27,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 @WebServlet("/logout")
 public class DataServletLogout extends HttpServlet {
   
+//   Fetch logout link is user is logged in
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html");

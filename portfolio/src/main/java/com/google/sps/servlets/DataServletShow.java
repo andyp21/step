@@ -41,6 +41,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 @WebServlet("/show")
 public class DataServletShow extends HttpServlet {
   
+  //   Determines if the content should be shown or not if user is logged in
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html");

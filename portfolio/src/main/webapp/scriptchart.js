@@ -28,6 +28,7 @@ function drawChart() {
     const options = {
       'title': 'Andrew\'s Best Friends',
       'height':400,
+      'width':'90%',
       'legend': 'none'
 
     };
