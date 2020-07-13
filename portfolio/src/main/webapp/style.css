@@ -3,7 +3,8 @@
 h1 {
     text-align: center;
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    line-height: 1.6;}
+    line-height: 1.6;
+    }
 
 h2 {
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
@@ -13,7 +14,10 @@ h3 {
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     line-height: 0;
     }
-
+h4 {
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    line-height: 1.6;
+    }
 ul.b {
   list-style-type: square;
 }
@@ -39,11 +43,14 @@ div {
 /* Add a black background color to the top navigation */
 .topnav {
 
-  padding: 4px 7%;
-  height:35px;
+  padding-left: 7%;
+  padding-right: 4%;
+
+  min-height:35px;
+  height:2vh;
   overflow: hidden;
   background-color: white;
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2); */
 }
 
 .ext-pages{
@@ -53,26 +60,26 @@ div {
 .topnav .ext-pages a {
   color: rgb(29, 96, 151);
   text-align: center;
-  padding: 0.3% 2%;
-  margin: 0 10px 0 10px;    
+  padding: 3px 2%;
+  margin: 0 1px 0 1px;    
   text-decoration: none;
   font-size: 70%;
   font-weight: bold;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: rgb(10, 60, 105,0.85);
   color: white;
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.3);
 }
 
 /* Add a color to the active/current link */
 .topnav .ext-pages a.active {
   background-color: rgb(10, 60, 105);
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
   color: white;
 }
 
@@ -98,56 +105,60 @@ body{
 }
 
 .bio-banner{
-  background-image: linear-gradient( rgb(17, 73, 119),rgba(44, 119, 180, 0.849));
+  /* background-image: linear-gradient( rgb(17, 73, 119),rgba(44, 119, 180, 0.849)); */
+  background-color:white;
   padding: 5px 0px 10px 5px;
-  color: white;
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  color: rgb(29, 96, 151);
+  /* box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2); */
 }
 
 
 .bio{
-    float:left;
-    clear:left;
-    margin-left:27%;
-    margin-top: 0.7%;
-    width:200px;
-    text-align: left;
-    font-size: 13px;
+  float:left;
+  clear:left;
+  margin-left:27%;
+  margin-top: 0.7%;
+  width:200px;
+  text-align: left;
   font-weight: bold;
-
+  font-size: 80%;
 }
 .content {
   margin-bottom: 16px;
   display: block;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100vw;
   min-height:110vh;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: white;
-
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  /* background-color: white; */
+  background-image: linear-gradient(white, rgb(230, 230, 230));
 }
 
 #profile-text {
     padding: 20px 20px;
     margin-left:10%;
-    margin-right:10%
+    margin-right:10%;
+    /* border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(255,255,255,0.6); */
+    font-size: 13px;
 }
 
 #selfie {
   position: absolute;
-  top: 43px;
+  top: 35px;
   left: 19%;
 
   border-radius: 60%;
   display: block;
   /* border: 8px solid #1874CD; */
-  border: 2px solid white;
+  border: 3px solid white;
 
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.401);
   width: 7%;
-  max-width: 100px;
-  min-width: 50px;
+  max-width: 130px;
+  min-width: 65px;
 }
 
 .image-thumbnails {
@@ -157,9 +168,10 @@ body{
 }
 
 .image-thumbnails img {
-  margin: 10px;
+  margin: 5%;
   max-height: 200px;
   max-width: 200px;
+  border-radius:20px;
 }
 
 .image-thumbnails img:hover {
@@ -196,7 +208,12 @@ html {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
-  /* padding: 6% 5%; */
+  padding: 6% 5%;
+  border-radius:25px;
+  background-color:rgb(255,255,255,0.35);
+}
+.cardp {
+  margin: 8px;
 }
 
 .container {
@@ -360,6 +377,7 @@ html {
    color: white;
    box-shadow: 0 10px 6px -7px rgba(0, 0, 0, 0.4); 
    font-style: italic;
+   font-size:75%;
    border-radius: 0 0 10px 10px; 
    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Arial', 'sans-serif';
 }
@@ -375,7 +393,7 @@ html {
     color: white;
     box-shadow: 0 -2px 5px -7px rgba(0, 0, 0, 0.4); 
     border-radius: 15px 15px 0 0;  
-    font-size: 80%; 
+    font-size: 90%; 
     font-style: normal;
 }
 #post{
@@ -458,13 +476,20 @@ html {
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
 }
 
+#logout{
+    float:right; 
+    margin-top:3px;
+}
+
+
+/* ***********************************QUIZ************************************ */
 
 #quiz{
   color: rgb(29, 96, 151);
   background-color:white;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.322);
   text-align: center;
-  padding: 0.8% 3%;
+  padding: 2% 6%;
   text-decoration: none;
   font-size: 80%;
   font-weight: bold;
@@ -482,7 +507,27 @@ html {
    
 }
 
-/* *************************************MAP********************** */
+.chart{
+    padding:5px;
+    border-radius:15px;
+    box-shadow:0 8px 14px 0 rgba(0, 0, 0, 0.2);
+    background-color:white;
+}
+#questions{
+    width: fit-content;
+    display: inline-table;
+}
+.question{
+    box-shadow:0 8px 14px 0 rgba(0, 0, 0, 0.2);
+    background-color:rgb(255,255,255,0.5);
+    border-radius:15px;
+    padding-top:1px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:30px;
+}
+/* *************************************MAP********************************* */
+
 #map {
   border: thin solid black;
   height: 100vh;

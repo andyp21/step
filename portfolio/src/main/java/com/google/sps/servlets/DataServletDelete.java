@@ -36,17 +36,19 @@ import com.google.appengine.api.users.UserServiceFactory;
 // Servlet which deletes the client's comments from the server
 @WebServlet("/delete-data")
 public class DataServletDelete extends HttpServlet {
-  
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html");
-    response.getWriter().println();
-  }
 
 // Method called when client uses delete button
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
+    removeComments();
+    response.setContentType("text/html;");
+    response.getWriter().println("Deleted All");
+
+    // Redirect back to the HTML page.
+    response.sendRedirect("/comments.html");
+  }
+  
+  public void removeComments(){
     // Get the user id
     UserService userService = UserServiceFactory.getUserService();
     String id = userService.getCurrentUser().getUserId();
@@ -61,15 +63,7 @@ public class DataServletDelete extends HttpServlet {
     for (Entity entity : results.asIterable()) {
         datastore.delete(entity.getKey());
     }
-    
-    // Respond with the result.
-    response.setContentType("text/html;");
-    response.getWriter().println("deleted All");
-
-    // Redirect back to the HTML page.
-    response.sendRedirect("/comments.html");
   }
-
 
   /**
    * @return the request parameter, or the default value if the parameter

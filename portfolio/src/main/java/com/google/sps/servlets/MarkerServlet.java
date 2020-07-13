@@ -39,7 +39,11 @@ public class MarkerServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("application/json");
+    String markers = getMarkers();
+    response.getWriter().println(markers);
+  }
 
+  public String getMarkers(){
     // Manually add list of markers for display
     Collection<Marker> markers = new ArrayList<>();
     Marker marker = new Marker(18.004360804462404, -76.78550655093456, "images/jamaicanflag.jpg");
@@ -60,9 +64,6 @@ public class MarkerServlet extends HttpServlet {
     markers.add(marker);
 
     Gson gson = new Gson();
-    String json = gson.toJson(markers);
-
-    response.getWriter().println(json);
+    return gson.toJson(markers);
   }
-
 }

@@ -30,7 +30,6 @@ import com.google.gson.Gson;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
-
 // Servlet which retrieves client String comment entries, stores them on server, and displays them on wall 
 @WebServlet("/comments")
 public class DataServletComments extends HttpServlet {
@@ -38,7 +37,41 @@ public class DataServletComments extends HttpServlet {
   //   Sends array of previous recent entries to be fetched
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String comments = retrieveComments();
+    response.setContentType("application/json;");
+    response.getWriter().println(comments);
+  }
+
+// Retrieves word entries and reverses them
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
+    // Get the input from the form.
+    String name = getParameter(request, "name", "Anonymous");
+    String comment = getParameter(request, "comment", "");
+    storeComment(name,comment);
+
+    // Respond with the result.
+    response.setContentType("text/html;");
+    response.getWriter().println(comment);
+
+    // Redirect back to the HTML page.
+    response.sendRedirect("/comments.html");
+  }
+  
+  /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null || value.length() == 0) {
+      return defaultValue;
+    }
+    return value;
+  }
+    
+  public String retrieveComments(){
     //   sort entries by most recent
     Query query = new Query("Entries").addSort("timestamp", SortDirection.DESCENDING);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -54,51 +87,24 @@ public class DataServletComments extends HttpServlet {
       nameList.add(name);
       commentList.add(comment);
     }
-
-    String json = convertToJson(commentList,nameList);
-    response.setContentType("application/json;");
-    response.getWriter().println(json);
+    return convertToJson(commentList,nameList);
   }
 
-// Retrieves word entries and reverses them
-  @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
-    // Get the input from the form.
-    String name = getParameter(request, "name", "Anonymous");
-    String text = getParameter(request, "comment", "");
+  public void storeComment(String name, String comment){
+
     long timestamp = System.currentTimeMillis();
     UserService userService = UserServiceFactory.getUserService();
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     String id = userService.getCurrentUser().getUserId();
 
     Entity userComments = new Entity("Entries",id);
     userComments.setProperty("id", id);
     userComments.setProperty("name", name);
-    userComments.setProperty("comment", text);
+    userComments.setProperty("comment", comment);
     userComments.setProperty("timestamp", timestamp);
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(userComments);
-
-    // Respond with the result.
-    response.setContentType("text/html;");
-    response.getWriter().println(text);
-
-    // Redirect back to the HTML page.
-    response.sendRedirect("/comments.html");
   }
 
-
-  /**
-   * @return the request parameter, or the default value if the parameter
-   *         was not specified by the client
-   */
-  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
-    String value = request.getParameter(name);
-    if (value == null || value.length() == 0) {
-      return defaultValue;
-    }
-    return value;
-  }
 
 /**
    * Converts a  instance into a JSON string using manual String concatentation.
