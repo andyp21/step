@@ -42,7 +42,7 @@ public class DataServletComments extends HttpServlet {
     response.getWriter().println(comments);
   }
 
-  // Retrieves word entries and reverses them
+  // Retrieves comment entry and stores it in the datastore service
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
